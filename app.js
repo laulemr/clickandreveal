@@ -5,7 +5,7 @@ const responses = {
   },
   predict: {
     title: "Predictable attention",
-    text: "Personalisation can mean building a model of your habits: what you pause on, react to, skip, share, and come back for."
+    text: "Personalization can mean building a model of your habits: what you pause on, react to, skip, share, and come back for."
   },
   ads: {
     title: "Ad impressions served",
@@ -19,26 +19,46 @@ const resultText = document.querySelector("#result-text");
 const resetBtn = document.querySelector("#resetBtn");
 
 buttons.forEach((button) => {
+  button.setAttribute("aria-pressed", "false");
+
   button.addEventListener("click", () => {
     const key = button.dataset.result;
     const response = responses[key];
 
-    buttons.forEach((btn) => btn.classList.remove("selected"));
+    if (!response) return;
+
+    buttons.forEach((btn) => {
+      btn.classList.remove("selected");
+      btn.setAttribute("aria-pressed", "false");
+    });
+
     button.classList.add("selected");
+    button.setAttribute("aria-pressed", "true");
 
     resultTitle.textContent = response.title;
     resultText.textContent = response.text;
 
     resetBtn.hidden = false;
+
+    // Move focus to updated content so screen readers announce it
+    resultTitle.focus();
   });
 });
 
 resetBtn.addEventListener("click", () => {
-  buttons.forEach((btn) => btn.classList.remove("selected"));
+  buttons.forEach((btn) => {
+    btn.classList.remove("selected");
+    btn.setAttribute("aria-pressed", "false");
+  });
 
   resultTitle.textContent = "Make a choice";
   resultText.textContent =
-    "Select one of the platform statements to reveal what the feed may optimise for.";
+    "Select one of the platform statements to reveal what the feed may optimize for.";
 
   resetBtn.hidden = true;
+
+  // Return focus to the first choice
+  if (buttons.length > 0) {
+    buttons[0].focus();
+  }
 });
