@@ -9,12 +9,12 @@
 
 <body>
   <main class="slide" aria-labelledby="slide-title">
-    <header class="topbar">
+    <header class="topbar" aria-label="Slide information">
       <p><span aria-hidden="true">•</span> The Invisible Editor</p>
-      <p class="counter">03 / 12</p>
+      <p class="counter" aria-label="Slide 3 of 12">03 / 12</p>
     </header>
 
-    <section class="hero">
+    <section class="hero" aria-labelledby="slide-title">
       <p class="eyebrow">The Business Model</p>
 
       <h1 id="slide-title">
@@ -25,31 +25,35 @@
 
     <section class="interaction" aria-labelledby="prompt">
       <div class="quotes">
-        <p id="prompt" class="label">Choose the platform promise that sounds most convincing</p>
+        <p id="prompt" class="label">
+          Choose the platform promise that sounds most convincing
+        </p>
 
-        <button data-result="time">
+        <button type="button" data-result="time" aria-describedby="prompt">
           “Connecting you with what matters most.”
         </button>
 
-        <button data-result="predict">
-          “A personalised experience just for you.”
+        <button type="button" data-result="predict" aria-describedby="prompt">
+          “A personalized experience just for you.”
         </button>
 
-        <button data-result="ads">
+        <button type="button" data-result="ads" aria-describedby="prompt">
           “Bringing the world closer together.”
         </button>
       </div>
 
-      <div class="reveal" aria-live="polite">
+      <div class="reveal" aria-live="polite" aria-atomic="true">
         <p class="label red-label">The system heard</p>
-        <h2 id="result-title">Make a choice</h2>
+        <h2 id="result-title" tabindex="-1">Make a choice</h2>
         <p id="result-text">
-          Select one of the platform statements to reveal what the feed may optimise for.
+          Select one of the platform statements to reveal what the feed may optimize for.
         </p>
       </div>
     </section>
 
-    <button id="resetBtn" class="reset" hidden>Try another choice</button>
+    <button type="button" id="resetBtn" class="reset" hidden>
+      Try another choice
+    </button>
   </main>
 
   <script src="app.js"></script>
