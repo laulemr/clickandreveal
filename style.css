@@ -4,34 +4,34 @@
 
 body {
   margin: 0;
-  background: #09090b;
-  color: #f1ead8;
+  background: #1B2430;
+  color: #F7F3EA;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .slide {
   min-height: 100vh;
   padding: 28px 7%;
-  background: #09090b;
+  background: #1B2430;
 }
 
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #6f6a78;
+  color: #D6DEE6;
   font-size: 14px;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
 .topbar span {
-  color: #ef342b;
+  color: #FF8A80;
   font-size: 20px;
 }
 
 .counter {
-  color: #f1ead8;
+  color: #F7F3EA;
 }
 
 .hero {
@@ -41,24 +41,24 @@ body {
 
 .eyebrow,
 .label {
-  color: #6f6a78;
+  color: #D6DEE6;
   font-size: 14px;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
 h1 {
   margin: 16px 0 90px;
-  font-family: Impact, "Arial Narrow", Arial, sans-serif;
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   font-size: clamp(56px, 9vw, 112px);
-  line-height: 0.95;
-  font-weight: 400;
+  line-height: 1;
+  font-weight: 900;
   text-transform: uppercase;
 }
 
 .red,
 .red-label {
-  color: #ef342b;
+  color: #FF8A80;
 }
 
 .interaction {
@@ -80,48 +80,52 @@ h1 {
   margin: 20px auto;
   padding: 18px 22px;
   background: transparent;
-  border: 1px solid #393641;
-  color: #fff7df;
+  border: 2px solid #7F8A99;
+  color: #F7F3EA;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(23px, 3vw, 34px);
   font-style: italic;
   font-weight: bold;
-  line-height: 1.25;
+  line-height: 1.35;
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.2s, background 0.2s;
 }
 
-.quotes button:hover,
+.quotes button:hover {
+  border-color: #FF8A80;
+  background: rgba(255, 138, 128, 0.12);
+}
+
+.quotes button:focus,
 .quotes button:focus-visible {
-  border-color: #ef342b;
-  transform: translateY(-2px);
-  outline: none;
+  outline: 4px solid #FFD166;
+  outline-offset: 4px;
+  border-color: #FFD166;
 }
 
 .quotes button.selected {
-  border-color: #ef342b;
-  background: rgba(239, 52, 43, 0.08);
+  border-color: #FF8A80;
+  background: rgba(255, 138, 128, 0.18);
 }
 
 .reveal {
-  border-left: 1px solid #393641;
+  border-left: 2px solid #7F8A99;
   padding-left: 56px;
   min-height: 260px;
 }
 
 .reveal h2 {
   margin: 18px 0;
-  font-family: Impact, "Arial Narrow", Arial, sans-serif;
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   font-size: clamp(42px, 6vw, 76px);
-  line-height: 0.95;
-  font-weight: 400;
+  line-height: 1;
+  font-weight: 900;
   text-transform: uppercase;
 }
 
 .reveal p:last-child {
-  color: #9a94a6;
+  color: #F7F3EA;
   font-size: 19px;
-  line-height: 1.55;
+  line-height: 1.6;
   max-width: 520px;
 }
 
@@ -129,12 +133,34 @@ h1 {
   display: block;
   margin: 60px auto 0;
   padding: 13px 24px;
-  border: 1px solid #ef342b;
+  border: 2px solid #FF8A80;
   background: transparent;
-  color: #f1ead8;
+  color: #F7F3EA;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   cursor: pointer;
+}
+
+.reset:hover {
+  background: rgba(255, 138, 128, 0.12);
+}
+
+.reset:focus,
+.reset:focus-visible {
+  outline: 4px solid #FFD166;
+  outline-offset: 4px;
+  border-color: #FFD166;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quotes button {
+    transition: none;
+  }
+
+  .quotes button:hover,
+  .quotes button:focus-visible {
+    transform: none;
+  }
 }
 
 @media (max-width: 800px) {
@@ -144,7 +170,7 @@ h1 {
 
   .reveal {
     border-left: none;
-    border-top: 1px solid #393641;
+    border-top: 2px solid #7F8A99;
     padding-left: 0;
     padding-top: 36px;
     text-align: center;
